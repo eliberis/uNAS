@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+scikit-learn="*"
+tensorflow = "==2.2.0"
+pillow = "*"
+tensorflow-addons = "==0.10"
+pydot = "*"
+tqdm = "*"
+matplotlib = "*"
+parameterized = "*"
+dragonfly-opt = "==0.1.5"
+cython = "*"
+POT = "*"
+ray = "*"
+
+[requires]
+python_version = "3.7"
