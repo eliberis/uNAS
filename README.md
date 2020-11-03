@@ -6,7 +6,11 @@
  model size, latency and peak memory usage.
 
 For a full description of methodology and experimental results, please see the accompanying paper
- _"μNAS: Constrained Neural Architecture Search for Microcontrollers"_ (_URL TBA_). 
+ [_"μNAS: Constrained Neural Architecture Search for Microcontrollers"_](https://arxiv.org/abs/2010.14246). 
+ 
+*Correction notice w/ arXiv v1:* arXiv v1 paper incorrectly reported the number of MACs for the
+ DS-CNN baseline for the Speech Commands dataset. Thus, the biggest improvement in MACs is ~900x
+  compared to one of the RENA baselines. 
  
  
 ## Usage 
