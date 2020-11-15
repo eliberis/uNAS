@@ -7,5 +7,5 @@ training_config.pruning = PruningConfig(
     start_pruning_at_epoch=20,
     finish_pruning_by_epoch=40,
     min_sparsity=0.10,
-    max_sparsity=0.85
+    max_sparsity=0.90
 )

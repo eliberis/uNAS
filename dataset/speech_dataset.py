@@ -340,7 +340,7 @@ class AudioProcessor(object):
                 stride=frame_step,
                 magnitude_squared=True)
             x = audio_ops.mfcc(spectrogram, sample_rate, dct_coefficient_count=num_channels,
-                               upper_frequency_limit=7500, lower_frequency_limit=20)
+                               upper_frequency_limit=4000, lower_frequency_limit=20)
             x = tf.reshape(x, (spectrogram_length, num_channels, 1))
             return x, label
 
@@ -361,8 +361,8 @@ class SpeechDataset:
                  unknown_percentage=10,
                  validation_percentage=10,
                  testing_percentage=10,
-                 window_size_ms=40.0,
-                 window_stride=20.0):
+                 window_size_ms=30.0,
+                 window_stride=10.0):
         wanted_words = words if words is not None else ["yes", "no"]
         self.prepared_words_list = prepare_words_list(wanted_words)
         self.model_settings = \
