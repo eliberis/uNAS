@@ -31,7 +31,7 @@ class NNFunctionCaller(CPFunctionCaller):
         self.log = logging.getLogger(name="NNExperiment")
         pruning = self.model_trainer.config.pruning
 
-        opt_domain = {"network": NNDomain("munas-net", constraint_checker=lambda x: True)}
+        opt_domain = {"network": NNDomain("unas-net", constraint_checker=lambda x: True)}
         if pruning:
             opt_domain["sparsity"] = EuclideanDomain([[pruning.min_sparsity, pruning.max_sparsity]])
 

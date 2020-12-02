@@ -141,7 +141,7 @@ class NeuralNetworkWrapper(DFNeuralNetwork):
         non_proc_layer_mass = max(0.1 * sum(f for f in mass if f != -1), 100)  # according to Dragonfly
         self.layer_masses = np.array([(non_proc_layer_mass if f == -1 else f) for f in mass], dtype=np.float) / 1000
 
-        super().__init__("munas-net",
+        super().__init__("unas-net",
                          layer_labels, conn_mat,
                          num_units_in_each_layer=units,
                          all_layer_label_classes=all_possible_labels(),

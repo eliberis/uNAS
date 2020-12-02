@@ -1,5 +1,5 @@
 machine = edgar@aoraki.cs.ox.ac.uk
-project_name = munas
+project_name = unas
 remote_path = "${machine}:/nfs-share/edgar/Projects/${project_name}"
 
 .PHONY: clean

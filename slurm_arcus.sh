@@ -2,7 +2,7 @@
 #SBATCH --ntasks-per-node=10
 #SBATCH --partition=htc
 #SBATCH --gres=gpu:2
-#SBATCH --job-name="mu-nas"
+#SBATCH --job-name="unas"
 
 # TODO: do a pipenv install to make sure environment exists and is up to date?
 # TODO: load modules
