@@ -37,10 +37,15 @@ def main():
     configs = {}
     exec(Path(args.config_file).read_text(), configs)
 
-    if not "search_algorithm" in configs:
+    if "search_algorithm" not in configs:
         algo = BayesOpt
     else:
         algo = configs["search_algorithm"]
+
+    search_space = configs["search_config"].search_space
+    dataset = configs["training_config"].dataset
+    search_space.input_shape = dataset.input_shape
+    search_space.num_classes = dataset.num_classes
 
     search = algo(experiment_name=args.name or "search",
                   search_config=configs["search_config"],
@@ -51,6 +56,7 @@ def main():
         log.warning("Search state file to load from is not found, the search will start from scratch.")
         args.load_from = None
     search.search(load_from=args.load_from, save_every=args.save_every)
+
 
 if __name__ == "__main__":
     main()

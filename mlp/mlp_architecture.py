@@ -21,7 +21,8 @@ class MlpArchitecture(Architecture):
 
         return Model(inputs=i, outputs=x)
 
-    def to_resource_graph(self, input_shape, num_classes, element_type=np.uint8, batch_size=1):
+    def to_resource_graph(self, input_shape, num_classes, element_type=np.uint8, batch_size=1,
+                          **kwargs):
         from resource_models.graph import Graph
         from resource_models.ops import Input, Dense
 

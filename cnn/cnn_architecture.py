@@ -20,9 +20,11 @@ class CnnArchitecture(Architecture):
         # entry for convenient referencing or passing information to morphs.
         self.architecture = architecture_dict
 
-    def _assemble_a_network(self, input, num_classes, conv_layer, pooling_layer, dense_layer, add_layer, flatten_layer):
+    def _assemble_a_network(self, input, num_classes, conv_layer,
+                            pooling_layer, dense_layer, add_layer, flatten_layer):
         """
-        Assembles a network architecture, starting at `input`, using factory functions for each layer type.
+        Assembles a network architecture, starting at `input`, using factory functions for each
+        layer type.
         :returns Output tensor of the network
         """
         def tie_up_pending_outputs(outputs):

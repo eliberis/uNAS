@@ -7,6 +7,9 @@ from .mlp_schema import get_schema
 
 
 class MlpSearchSpace(SearchSpace):
+    input_shape = None
+    num_classes = None
+
     @property
     def schema(self) -> SchemaType:
         return get_schema()

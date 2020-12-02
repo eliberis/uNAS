@@ -4,7 +4,7 @@ import os
 
 import numpy as np
 import tensorflow as tf
-from functools import reduce
+from functools import reduce, lru_cache
 
 
 from dataset import Dataset
@@ -191,4 +191,9 @@ class Scheduler:
 
 
 def debug_mode():
-    return bool(os.environ.get("MUNAS_DEBUG"))
+    return bool(os.environ.get("UNAS_DEBUG"))
+
+
+@lru_cache(maxsize=None)
+def num_gpus():
+    return len(tf.config.experimental.list_physical_devices("GPU"))
