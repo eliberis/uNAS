@@ -55,6 +55,7 @@ def plot_pareto_front(search_state_file, x_range=(0.0, 1.0), y_range=(0.0, 3e6),
     ax.set_xticks(x_minor_ticks, minor=True)
     ax.set_xticks(x_major_ticks, minor=False)
     ax.set_xlabel("Error rate")
+    ax.set_ylabel("Resource usage (bytes)")
     ax.set_yscale("log")
     ax.set_title(title or "PMU, model size and MACs versus error rate")
     ax.xaxis.grid(True, which='both', linewidth=0.5, linestyle=":")
@@ -67,15 +68,17 @@ def plot_pareto_front(search_state_file, x_range=(0.0, 1.0), y_range=(0.0, 3e6),
         color = [(r, g, b, a) for a in alpha]
         ax.scatter(x, y, marker="D", s=10, label=label, color=color)
 
-    scatter(error, macs, color=colors[0], label="MACs",
-            alpha=(0.1 + 0.5 * is_efficient))
+    # scatter(error, macs, color=colors[0], label="MACs",
+    #         alpha=(0.1 + 0.25 * is_efficient))
     scatter(error, pmu, color=colors[1], label="Peak memory usage",
-            alpha=(0.1 + 0.5 * is_efficient))
+            alpha=(0.1 + 0.25 * is_efficient))
+    # plt.hlines(np.mean(pmu), x_min, x_max, color=colors[1])
     scatter(error, ms, color=colors[2], label="Model size",
-            alpha=(0.1 + 0.5 * is_efficient))
+            alpha=(0.1 + 0.25 * is_efficient))
+    # plt.hlines(np.mean(ms), x_min, x_max, color=colors[2])
     ax.legend(loc="upper right")
 
-    for i, c in enumerate(colors):
+    for i, c in enumerate(colors[1:]):
         ax.legend_.legendHandles[i].set_facecolor(c)
 
     plt.tight_layout()
