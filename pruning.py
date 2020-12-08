@@ -51,6 +51,7 @@ class DPFPruning(tf.keras.callbacks.Callback):
         assert 0.0 < target_sparsity < 1.0
         assert start_pruning_at_epoch <= finish_pruning_by_epoch
         super().__init__()
+        self._supports_tf_logs = True  # (tensorflow/tensorflow#41851)
 
         # Internally, we count epochs from 0
         self.t_0 = start_pruning_at_epoch - 1
