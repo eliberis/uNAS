@@ -8,9 +8,13 @@
 For a full description of methodology and experimental results, please see the accompanying paper
  [_"μNAS: Constrained Neural Architecture Search for Microcontrollers"_](https://arxiv.org/abs/2010.14246). 
  
-*Correction notice w/ arXiv v1:* arXiv v1 paper incorrectly reported the number of MACs for the
- DS-CNN baseline for the Speech Commands dataset. Thus, the biggest improvement in MACs is ~900x
-  compared to one of the RENA baselines. 
+*Changelog from arXiv v1:* 
+
+* correctly reported the number of MACs for the DS-CNN baseline for the Speech Commands dataset.
+* fixed Speech Commands hyperparameters and updated found models
+* add smaller CIFAR-10 model in the comparison table
+* add search times to the comparison table
+* update discussion on pruning, search convergence and the use of soft constraints
  
  
 ## Usage 
