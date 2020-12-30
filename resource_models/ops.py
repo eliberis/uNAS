@@ -37,9 +37,8 @@ class Conv2D(OperatorDesc):
                          suffix="weight", sparse_size=self.sparse_kernel_size)
         if self.use_bias:
             self._add_weight(shape=(self.num_filters, ), suffix="bias")
-        half_k = (self.kernel_size - 1) // 2
-        h_ = h if self.padding == "same" else h - 2 * half_k
-        w_ = w if self.padding == "same" else w - 2 * half_k
+        h_ = h if self.padding == "same" else h - self.kernel_size + 1
+        w_ = w if self.padding == "same" else w - self.kernel_size + 1
         output_shape = (batch_size, ceil(h_ / self.stride), ceil(w_ / self.stride), self.num_filters)
         return self._produce_output(shape=output_shape)
 
@@ -69,9 +68,8 @@ class DWConv2D(OperatorDesc):
                          suffix="weight", sparse_size=self.sparse_kernel_size)
         if self.use_bias:
             self._add_weight(shape=(in_channels, ), suffix="bias")
-        half_k = (self.kernel_size - 1) // 2
-        h_ = h if self.padding == "same" else h - 2 * half_k
-        w_ = w if self.padding == "same" else w - 2 * half_k
+        h_ = h if self.padding == "same" else h - self.kernel_size + 1
+        w_ = w if self.padding == "same" else w - self.kernel_size + 1
         output_shape = (batch_size, ceil(h_ / self.stride), ceil(w_ / self.stride), in_channels)
         return self._produce_output(shape=output_shape)
 
