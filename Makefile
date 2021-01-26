@@ -17,7 +17,7 @@ clean-all: clean
 
 .PHONY: upload
 upload:
-	rsync -avzzu --filter ':- .gitignore' . $(remote_path)
+	rsync -Iavzzu --filter ':- .gitignore' . $(remote_path)
 
 .PHONY: submit-job
 submit-job: upload
@@ -25,8 +25,8 @@ submit-job: upload
 
 .PHONY: upload-arcus
 upload-arcus:
-	rsync -avzzu --filter ':- .gitignore' . "arcus-htc:/data/coml-oxmlsys/chri5387/${project_name}"
+	rsync -Iavzzu --filter ':- .gitignore' . "arcus-htc:/data/coml-oxmlsys/chri5387/${project_name}"
 
 .PHONY: upload-hpc
 upload-hpc:
-	rsync -avzzu --filter ':- .gitignore' . "el398@login-gpu.hpc.cam.ac.uk:/home/el398/${project_name}"
+	rsync -Iavzzu --filter ':- .gitignore' . "el398@login-gpu.hpc.cam.ac.uk:/home/el398/${project_name}"

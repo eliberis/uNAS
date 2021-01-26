@@ -8,9 +8,9 @@ from search_algorithms import AgingEvoSearch
 
 
 def lr_schedule(epoch):
-    if 0 <= epoch < 35:
+    if 0 <= epoch < 90:
         return 0.01
-    if 35 <= epoch < 65:
+    if 90 <= epoch < 105:
         return 0.005
     return 0.001
 
@@ -21,7 +21,7 @@ training_config = TrainingConfig(
     dataset=CIFAR10(),
     optimizer=lambda: tfa.optimizers.SGDW(learning_rate=0.01, momentum=0.9, weight_decay=1e-5),
     batch_size=128,
-    epochs=80,
+    epochs=130,
     callbacks=lambda: [LearningRateScheduler(lr_schedule)],
 )
 
